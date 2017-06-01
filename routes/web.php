@@ -15,3 +15,12 @@ Route::get('/contact',[
     'as'=>'contact_path',
     'uses'=>'ContactController@create',
 ]);
+
+Route::post('/contact',[
+    'as'=>'contact_path',
+    'uses'=>'ContactController@store',
+]);
+
+Route::get('/test-email',function() {
+    return new \App\Mail\ContactMessageCreated('nom','mail','message');
+});
